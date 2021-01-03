@@ -1,0 +1,23 @@
+#editor {
+  border: 1px solid #2b3e50;
+  outline: 0;
+  height: 30em;
+  counter-reset: line;
+}
+
+#editor > div {
+  counter-increment: line;
+}
+
+#editor > div:before {
+  content: counter(line);
+  display: inline-block;
+  margin-right: 0.5em;
+  padding-right: 0.2em;
+  text-align: right;
+  width: 2em;
+}
+
+.notification {
+  display: none;
+}
