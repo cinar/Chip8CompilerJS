@@ -54,6 +54,7 @@ export class Notification {
    */
   error(e) {
     this.show(e.toString(), ERROR_CLASS);
+    console.error(e);
   }
 
   /**
