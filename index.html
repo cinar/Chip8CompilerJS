@@ -28,11 +28,13 @@
           </div>
           <div class="box">
             <div id="editor" contenteditable="true" spellcheck="false">
-              <div>name: 0x00 0x01 0xA0 0xF1</div>
-              <div>ADD v1 0x01</div>
-              <div>method:</div>
-              <div>ADD v2 0x02</div>
-              <div>GOTO method</div>
+              <div>run:</div>
+              <div>LD V0 0x00</div>
+              <div>ADD V0 0x01</div>
+              <div>SE V0 0x0A</div>
+              <div>JP run</div>
+              <div>done:</div>
+              <div>JP done</div>
             </div>
           </div>
         </div>

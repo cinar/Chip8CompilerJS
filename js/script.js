@@ -10,7 +10,11 @@ const notification = new Notification('notification');
 
 compileButton.addEventListener('click', (event) => {
   try {
-    console.log(chip8compiler.parse(editor.innerText));
+    const tokens = chip8compiler.parse(editor.innerText);
+    console.log(tokens);
+
+    chip8compiler.compile(tokens);
+
     notification.success('Compiled.');
   } catch (e) {
     notification.error(e);
