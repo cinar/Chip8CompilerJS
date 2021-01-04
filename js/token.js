@@ -1,3 +1,5 @@
+'use strict';
+
 import { TokenName } from './tokenname.js';
 
 /**

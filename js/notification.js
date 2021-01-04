@@ -1,3 +1,5 @@
+'use strict';
+
 const SUCCESS_CLASS = 'is-success';
 const ERROR_CLASS = 'is-danger';
 const ALL_CLASSES = [SUCCESS_CLASS, ERROR_CLASS];
@@ -46,7 +48,7 @@ export class Notification {
     this.content.innerHTML = message;
     this.notification.style.display = 'block';
   }
- 
+
   /**
    * Shows the error notification with message.
    * 

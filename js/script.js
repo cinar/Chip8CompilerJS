@@ -1,3 +1,5 @@
+'use strict';
+
 import { Chip8Compiler } from './chip8compiler.js';
 import { Notification } from './notification.js';
 

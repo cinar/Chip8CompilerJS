@@ -1,3 +1,5 @@
+'use strict';
+
 import { TokenName } from './tokenname.js';
 import { Token } from './token.js';
 import { TokenIterator } from './tokeniterator.js';
