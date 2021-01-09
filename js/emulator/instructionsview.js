@@ -1,7 +1,7 @@
 'use strict';
 
-import {Chip8View} from './chip8view.js';
-import {toHex} from './helper.js';
+import { Chip8View } from './chip8view.js';
+import { toHex } from './helper.js';
 
 /**
  * Instructions view. Display instructions on page.
@@ -36,11 +36,13 @@ export class InstructionsView extends Chip8View {
    */
   initTable() {
     this.table = document.createElement('table');
+    this.table.classList.add('table');
+    this.table.classList.add('is-narrow');
 
     for (let i = 0; i < this.chip8.memory.byteLength; i += 2) {
       const tr = document.createElement('tr');
       if (i === this.prevPC) {
-        tr.classList.add('mark');
+        tr.classList.add('is-selected');
       }
       this.table.appendChild(tr);
       this.rows[i] = tr;

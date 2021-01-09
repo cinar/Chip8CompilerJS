@@ -1,7 +1,7 @@
 'use strict';
 
-import {Chip8View} from './chip8view.js';
-import {toHex} from './helper.js';
+import { Chip8View } from './chip8view.js';
+import { toHex } from './helper.js';
 
 /**
  * Register view. Displays the content of the registers on page.
@@ -53,6 +53,8 @@ export class RegistersView extends Chip8View {
    */
   initTable(names) {
     const table = document.createElement('table');
+    table.classList.add('table');
+    table.classList.add('is-narrow');
 
     const thead = document.createElement('thead');
     table.appendChild(thead);
@@ -109,7 +111,7 @@ export class RegistersView extends Chip8View {
 
       default:
         this.views['v' + toHex(index, 1)].innerHTML =
-            toHex(this.chip8.v[index], 2);
+          toHex(this.chip8.v[index], 2);
     }
   }
 

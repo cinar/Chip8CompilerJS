@@ -25,7 +25,7 @@ export class Chip8View {
    */
   unmarkAll() {
     for (let i = 0; i < this.marked.length; i++) {
-      this.marked[i].classList.remove('mark');
+      this.marked[i].classList.remove('is-selected');
     }
 
     this.marked.length = 0;
@@ -37,7 +37,7 @@ export class Chip8View {
    * @param {HTMLElement} view view instance.
    */
   mark(view) {
-    view.classList.add('mark');
+    view.classList.add('is-selected');
     this.marked.push(view);
   }
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-import {BitArray} from './bitarray.js';
+import { BitArray } from './bitarray.js';
 
 /**
  * XY plane of bits.

@@ -1,7 +1,7 @@
 'use strict';
 
-import {Chip8View} from './chip8view.js';
-import {toHex} from './helper.js';
+import { Chip8View } from './chip8view.js';
+import { toHex } from './helper.js';
 
 /**
  * Memory views. Displays the byte content of the memory
@@ -35,6 +35,8 @@ export class MemoryView extends Chip8View {
    */
   initTable() {
     this.table = document.createElement('table');
+    this.table.classList.add('table');
+    this.table.classList.add('is-narrow');
 
     const thead = document.createElement('thead');
     this.table.appendChild(thead);
@@ -86,6 +88,6 @@ export class MemoryView extends Chip8View {
     }
 
     this.table.scrollTop = this.views[begin].offsetTop -
-        (this.table.clientHeight / 2);
+      (this.table.clientHeight / 2);
   }
 }

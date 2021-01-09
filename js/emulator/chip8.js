@@ -1,9 +1,9 @@
 'use strict';
 
-import {BitArray} from './bitarray.js';
-import {Emitter} from './emitter.js';
-import {XyPlane} from './xyplane.js';
-import {toHex} from './helper.js';
+import { BitArray } from './bitarray.js';
+import { Emitter } from './emitter.js';
+import { XyPlane } from './xyplane.js';
+import { toHex } from './helper.js';
 
 const FONT_CH8 = new Uint8Array([
   0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
@@ -59,8 +59,8 @@ export class Chip8 extends Emitter {
     this.buffer = new ArrayBuffer(this.MEMORY_SIZE);
     this.memory = new DataView(this.buffer);
     this.display = new XyPlane(
-        new Uint8Array(this.buffer, this.DISPLAY_OFFSET, this.DISPLAY_SIZE),
-        this.DISPLAY_WIDTH);
+      new Uint8Array(this.buffer, this.DISPLAY_OFFSET, this.DISPLAY_SIZE),
+      this.DISPLAY_WIDTH);
     this.v = new Uint8Array(16);
     this.i = 0;
     this.sp = 0;
@@ -98,9 +98,9 @@ export class Chip8 extends Emitter {
    */
   loadProgramFromUrl(url) {
     return fetch(url)
-        .then((result) => result.arrayBuffer())
-        .then((buffer) => this.loadProgramFromBytes(new Uint8Array(buffer)))
-        .catch((e) => console.log(e));
+      .then((result) => result.arrayBuffer())
+      .then((buffer) => this.loadProgramFromBytes(new Uint8Array(buffer)))
+      .catch((e) => console.log(e));
   }
 
   /**
@@ -111,7 +111,7 @@ export class Chip8 extends Emitter {
   loadProgramFromBytes(bytes) {
     if (bytes.byteLength > this.PROGRAM_SIZE) {
       throw new Error(
-          `Program size ${bytes.byteLength} larger than available.`);
+        `Program size ${bytes.byteLength} larger than available.`);
     }
     this.setMemory(bytes, this.PROGRAM_OFFSET);
     this.setPC(this.PROGRAM_OFFSET);
@@ -654,8 +654,8 @@ export class Chip8 extends Emitter {
             const beginByteIndex = this.display.toByteIndex(xLoc, yPos);
             const endByteIndex = this.display.toByteIndex(xLoc + 8, yPos);
             this.emit('memory',
-                this.DISPLAY_OFFSET + beginByteIndex,
-                endByteIndex - beginByteIndex);
+              this.DISPLAY_OFFSET + beginByteIndex,
+              endByteIndex - beginByteIndex);
           }
 
           this.setV(0xF, collusion);

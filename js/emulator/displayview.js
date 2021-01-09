@@ -58,8 +58,8 @@ export class DisplayView {
 
         this.context.fillStyle = (bit) ? FOREGROUND_COLOR : BACKGROUND_COLOR;
         this.context.fillRect(
-            xPos * this.scaler, yPos * this.scaler,
-            this.scaler, this.scaler);
+          xPos * this.scaler, yPos * this.scaler,
+          this.scaler, this.scaler);
       }
     }
   }

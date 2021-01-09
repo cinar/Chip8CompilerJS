@@ -1,6 +1,6 @@
 'use strict';
 
-import {toHex} from './helper.js';
+import { toHex } from './helper.js';
 
 /**
  * Keyboard view. Machine keyboard.

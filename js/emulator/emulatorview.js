@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- * Control view. Machine controls.
+ * Emulator view.
  *
  * @author Onur Cinar
  */
-export class ControlView {
+export class EmulatorView {
   /**
    * Constructor.
    *
@@ -13,11 +13,10 @@ export class ControlView {
    */
   constructor(chip8) {
     this.chip8 = chip8;
-    this.controls = document.getElementById('controls');
     this.views = {};
 
     this.initButtons();
-    this.enable(['Start', 'Step']);
+    this.enable(['start', 'step']);
   }
 
   /**
@@ -27,39 +26,34 @@ export class ControlView {
     const self = this;
     const actions = [
       {
-        name: 'Start',
+        id: 'start',
         run: () => {
           self.start();
         },
       },
       {
-        name: 'Stop',
+        id: 'stop',
         run: () => {
           self.stop();
         },
       },
       {
-        name: 'Step',
+        id: 'step',
         run: () => {
           self.step();
         },
       },
       {
-        name: 'Reset',
+        id: 'reset',
         run: () => {
           self.reset();
         },
       },
     ];
 
-    for (let i = 0; i < actions.length; i++) {
-      const action = actions[i];
-
-      const button = document.createElement('button');
-      button.innerText = action.name;
-      button.addEventListener('click', action.run);
-      this.controls.appendChild(button);
-      this.views[action.name] = button;
+    for (let action of actions) {
+      const a = document.getElementById(action.id);
+      a.addEventListener('click', action.run);
     }
   }
 
@@ -80,7 +74,7 @@ export class ControlView {
    */
   start() {
     this.chip8.start();
-    this.enable(['Stop']);
+    this.enable(['stop']);
   }
 
   /**
@@ -88,7 +82,7 @@ export class ControlView {
    */
   stop() {
     this.chip8.stop();
-    this.enable(['Start', 'Step', 'Reset']);
+    this.enable(['start', 'step', 'reset']);
   }
 
   /**

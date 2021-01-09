@@ -26,12 +26,18 @@
       <div class="columns">
         <div class="column">
           <div class="buttons">
-            <buton id="compile" class="button is-info">Compile</button>
+            <a id="compile" class="button is-outlined is-info">Compile</a>
           </div>
-          <div class="box">
+          <div id="tabs1" class="tabs">
+            <ul>
+              <li><a data-target="code">Code</a></li>
+              <li><a data-target="help">Help</a></li>
+            </ul>
+          </div>
+          <div id="code" class="box">
             <div id="editor" contenteditable="true" spellcheck="false">
-              <div>run:</div>
               <div>LD V0 0x00</div>
+              <div>run:</div>
               <div>ADD V0 0x01</div>
               <div>SE V0 0x0A</div>
               <div>JP run</div>
@@ -39,14 +45,33 @@
               <div>JP done</div>
             </div>
           </div>
+          <div id="help" class="box">
+            Help...
+          </div>
         </div>
         <div class="column">
           <div class="buttons">
-            <buton id="run" class="button is-success">Run</button>
+            <a id="start" class="button is-outlined is-success">Start</a>
+            <a id="step" class="button is-outlined is-warning">Step</a>
+            <a id="stop" class="button is-outlined is-danger">Stop</a>
+            <a id="reset" class="button is-outlined is-danger">Reset</a>
           </div>
-          <div class="box">
-            Right
-          </div>          
+          <div id="tabs2" class="tabs">
+            <ul>
+              <li><a data-target="display">Display</a></li>
+              <li><a data-target="registers">Registers</a></li>
+              <li><a data-target="memory">Memory</a></li>
+              <li><a data-target="instructions">Instructions</a></li>
+            </ul>
+          </div>
+          <div id="display" class="box">
+          </div>
+          <div id="registers" class="box">
+          </div>
+          <div id="memory" class="box">
+          </div>
+          <div id="instructions" class="box">
+          </div>
         </div>
       </div>
     </div>

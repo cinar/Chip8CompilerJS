@@ -1,6 +1,6 @@
 'use strict';
 
-import {toBinary} from './helper.js';
+import { toBinary } from './helper.js';
 
 /** Byte bits. */
 const BYTE_BITS = 8;

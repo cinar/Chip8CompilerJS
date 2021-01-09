@@ -21,3 +21,17 @@
 .notification {
   display: none;
 }
+
+#help,
+#registers,
+#memory,
+#instructions {
+  display: none;
+}
+
+#memory table,
+#instructions table {
+  display: inline-block;
+  max-height: 30em;
+  overflow-y: scroll;
+}
