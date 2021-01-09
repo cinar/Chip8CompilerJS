@@ -23,15 +23,18 @@
 }
 
 #help,
-#registers,
-#memory,
-#instructions {
+#registers-memory {
   display: none;
 }
 
-#memory table,
 #instructions table {
   display: inline-block;
-  max-height: 30em;
+  max-height: 12em;
+  overflow-y: scroll;
+}
+
+#memory table {
+  display: inline-block;
+  max-height: 20em;
   overflow-y: scroll;
 }

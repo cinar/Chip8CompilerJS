@@ -35,7 +35,7 @@
             </ul>
           </div>
           <div id="code" class="box">
-            <div id="editor" contenteditable="true" spellcheck="false">
+            <div id="editor" class="is-family-code" contenteditable="true" spellcheck="false">
               <div>LD V0 0x00</div>
               <div>LD V1 0x0A</div>
               <div>LD V2 0x0A</div>
@@ -64,23 +64,29 @@
           </div>
           <div id="tabs2" class="tabs">
             <ul>
-              <li><a data-target="display-keyboard">Display</a></li>
-              <li><a data-target="registers">Registers</a></li>
-              <li><a data-target="memory">Memory</a></li>
-              <li><a data-target="instructions">Instructions</a></li>
+              <li><a data-target="display-keyboard-instructions">Display</a></li>
+              <li><a data-target="registers-memory">Registers/Memory</a></li>
             </ul>
           </div>
-          <div id="display-keyboard" class="box">
-            <div id="display" class="box">
+          <div id="display-keyboard-instructions" class="box">
+            <div id="display">
             </div>
-            <div id="keyboard" class="box">
+            <div class="columns">
+              <div class="column">
+                <div id="keyboard">
+                </div>
+              </div>
+              <div class="column">
+                <div id="instructions">
+                </div>
+              </div>
             </div>
           </div>
-          <div id="registers" class="box">
-          </div>
-          <div id="memory" class="box">
-          </div>
-          <div id="instructions" class="box">
+          <div id="registers-memory" class="box">
+            <div id="registers">
+            </div>
+            <div id="memory">
+            </div>
           </div>
         </div>
       </div>
