@@ -14,18 +14,14 @@ const PROGRAM_OFFSET = 0x200;
  * Parser pattern.
  */
 const PATTERN =
-  '(?:' +
-  '(?:^(' +
   '(?:(?<section>[a-zA-Z_][a-zA-Z0-9_\\-]*):)' +
+  '|(?:V(?<register>[0-9A-F]))' +
   '|(?<instruction>[A-Z]+)' +
-  '))' +
-  '|(?:[ \t]*(' +
-  '(?:V(?<register>[0-9A-F]))' +
   '|(?:0x(?<hex>[0-9A-F]+))' +
   '|(?<name>[a-zA-Z_][a-zA-Z0-9_\\-]*)' +
-  '|(?<other>.+)' +
-  '))' +
-  ')';
+  '|(?<other>[^\\s]+)';
+
+console.log(PATTERN);
 
 /**
  * CHIP 8 code compiler.
