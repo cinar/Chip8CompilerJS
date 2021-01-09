@@ -34,12 +34,13 @@ export class Notification {
   }
 
   /**
-   * Show message with class.
+   * Show message with class. Hides after given time.
    * 
    * @param {string} message message content.
    * @param {string} messageClass CSS class.
+   * @param {number} hideAfter hide after.
    */
-  show(message, messageClass) {
+  show(message, messageClass, hideAfter) {
     for (let cssClass of ALL_CLASSES) {
       this.notification.classList.remove(cssClass);
     }
@@ -47,6 +48,16 @@ export class Notification {
     this.notification.classList.add(messageClass);
     this.content.innerHTML = message;
     this.notification.style.display = 'block';
+
+    if (this.timer !== undefined) {
+      clearTimeout(this.timer);
+      this.timer = undefined;
+    }
+
+    this.timer = setTimeout(() => {
+      this.hide();
+      this.timer = undefined;
+    }, hideAfter);
   }
 
   /**
@@ -55,7 +66,7 @@ export class Notification {
    * @param {Error} e error object.
    */
   error(e) {
-    this.show(e.toString(), ERROR_CLASS);
+    this.show(e.toString(), ERROR_CLASS, 60 * 1000);
     console.error(e);
   }
 
@@ -65,6 +76,6 @@ export class Notification {
    * @param {string} message success message.
    */
   success(message) {
-    this.show(message, SUCCESS_CLASS);
+    this.show(message, SUCCESS_CLASS, 2 * 1000);
   }
 }
