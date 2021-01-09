@@ -14,9 +14,11 @@ const PROGRAM_OFFSET = 0x200;
  * Parser pattern.
  */
 const PATTERN =
+  '(?:^\\s*(?:' +
   '(?:(?<section>[a-zA-Z_][a-zA-Z0-9_\\-]*):)' +
-  '|(?:V(?<register>[0-9A-F]))' +
   '|(?<instruction>[A-Z]+)' +
+  '))' +
+  '|(?:V(?<register>[0-9A-F]))' +
   '|(?:0x(?<hex>[0-9A-F]+))' +
   '|(?<name>[a-zA-Z_][a-zA-Z0-9_\\-]*)' +
   '|(?:;(?<comment>.*)$)' +

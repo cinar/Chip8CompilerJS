@@ -54,6 +54,7 @@ export class EmulatorView {
     for (let action of actions) {
       const a = document.getElementById(action.id);
       a.addEventListener('click', action.run);
+      this.views[action.id] = a;
     }
   }
 
@@ -97,6 +98,6 @@ export class EmulatorView {
    */
   reset() {
     this.chip8.reset();
-    this.enable([]);
+    this.enable(['start', 'step']);
   }
 }

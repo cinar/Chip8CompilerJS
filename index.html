@@ -37,7 +37,13 @@
           <div id="code" class="box">
             <div id="editor" contenteditable="true" spellcheck="false">
               <div>LD V0 0x00</div>
+              <div>LD V1 0x0A</div>
+              <div>LD V2 0x0A</div>
+              <div></div>
               <div>run:</div>
+              <div>  LD F V0</div>
+              <div>  CLS</div>
+              <div>  DRW V1 V2 0x05</div>
               <div>  ADD V0 0x01</div>
               <div>  SE V0 0x0A</div>
               <div>  JP run</div>
@@ -51,10 +57,10 @@
         </div>
         <div class="column">
           <div class="buttons">
-            <a id="start" class="button is-outlined is-success">Start</a>
-            <a id="step" class="button is-outlined is-warning">Step</a>
-            <a id="stop" class="button is-outlined is-danger">Stop</a>
-            <a id="reset" class="button is-outlined is-danger">Reset</a>
+            <button id="start" class="button is-outlined is-success">Start</button>
+            <button id="step" class="button is-outlined is-warning">Step</button>
+            <button id="stop" class="button is-outlined is-danger">Stop</a>
+            <button id="reset" class="button is-outlined is-danger">Reset</button>
           </div>
           <div id="tabs2" class="tabs">
             <ul>
