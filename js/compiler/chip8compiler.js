@@ -19,9 +19,8 @@ const PATTERN =
   '|(?<instruction>[A-Z]+)' +
   '|(?:0x(?<hex>[0-9A-F]+))' +
   '|(?<name>[a-zA-Z_][a-zA-Z0-9_\\-]*)' +
+  '|(?:;(?<comment>.*)$)' +
   '|(?<other>[^\\s]+)';
-
-console.log(PATTERN);
 
 /**
  * CHIP 8 code compiler.
