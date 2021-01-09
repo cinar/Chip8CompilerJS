@@ -65,6 +65,7 @@ export class CompilerView {
       console.log(tokens);
 
       const bytes = this.chip8compiler.compile(tokens);
+      this.chip8.reset();
       this.chip8.loadProgramFromBytes(bytes);
 
       this.notification.success('Compiled.');
