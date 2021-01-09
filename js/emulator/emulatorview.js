@@ -1,5 +1,11 @@
 'use strict';
 
+import { DisplayView } from './displayview.js';
+import { KeyboardView } from './keyboardview.js';
+import { RegistersView } from './registersview.js';
+import { MemoryView } from './memoryview.js';
+import { InstructionsView } from './instructionsview.js';
+
 /**
  * Emulator view.
  *
@@ -17,6 +23,12 @@ export class EmulatorView {
 
     this.initButtons();
     this.enable(['start', 'step']);
+
+    new DisplayView(chip8);
+    new KeyboardView(chip8);
+    new RegistersView(chip8);
+    new MemoryView(chip8);
+    new InstructionsView(chip8);
   }
 
   /**

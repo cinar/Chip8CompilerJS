@@ -35,8 +35,7 @@ export class MemoryView extends Chip8View {
    */
   initTable() {
     this.table = document.createElement('table');
-    this.table.classList.add('table');
-    this.table.classList.add('is-narrow');
+    this.table.classList.add('table', 'is-narrow');
 
     const thead = document.createElement('thead');
     this.table.appendChild(thead);

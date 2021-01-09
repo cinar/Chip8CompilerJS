@@ -31,6 +31,8 @@ export class KeyboardView {
     ];
 
     const table = document.createElement('table');
+    table.classList.add('table', 'is-narrow');
+
     const self = this;
 
     let tr;
@@ -44,6 +46,8 @@ export class KeyboardView {
       tr.appendChild(td);
 
       const button = document.createElement('button');
+      button.classList.add('button');
+
       button.innerText = toHex(keys[i], 1).toUpperCase();
       button.addEventListener('mousedown', () => {
         self.chip8.press(keys[i]);

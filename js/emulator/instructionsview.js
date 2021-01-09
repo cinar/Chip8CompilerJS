@@ -36,8 +36,7 @@ export class InstructionsView extends Chip8View {
    */
   initTable() {
     this.table = document.createElement('table');
-    this.table.classList.add('table');
-    this.table.classList.add('is-narrow');
+    this.table.classList.add('table', 'is-narrow');
 
     for (let i = 0; i < this.chip8.memory.byteLength; i += 2) {
       const tr = document.createElement('tr');
