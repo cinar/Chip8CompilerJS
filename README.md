@@ -1,10 +1,12 @@
 # CHIP-8 Compiler
 
-This is a CHIP8 Compiler that I developed in JavaScript.
+This is a CHIP8 Compiler developed using JavaScript. It allows you to write code, compile, and see it in the emulator afterwards.
 
 ## Usage
 
-TODO
+![Compiler Screenshot](images/screenshot.png)
+
+Click the `Compile` button to compile the code. Click `Start` or `Step` to run your code in the emulator. You can click `Stop` to stop the emulator, and you can click `Reset` to reset it. Clicking the `Save` button on the left will allow you to download the compiled binary file. 
 
 ## Language
 
