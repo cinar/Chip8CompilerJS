@@ -76,9 +76,9 @@ export class EmulatorView {
    * @param {Array} enabled enabled names.
    */
   enable(enabled) {
-    const enabledNames = new Set(enabled);
-    for (const [name, value] of Object.entries(this.views)) {
-      value.disabled = !enabledNames.has(name);
+    const enabledIds = new Set(enabled);
+    for (const [id, value] of Object.entries(this.views)) {
+      value.disabled = !enabledIds.has(id);
     }
   }
 

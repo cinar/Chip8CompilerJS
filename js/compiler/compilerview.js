@@ -36,6 +36,12 @@ export class CompilerView {
           self.compile();
         },
       },
+      {
+        id: 'save',
+        run: () => {
+          self.save();
+        },
+      },
     ];
 
     for (let action of actions) {
@@ -50,9 +56,9 @@ export class CompilerView {
    * @param {Array} enabled enabled names.
    */
   enable(enabled) {
-    const enabledNames = new Set(enabled);
-    for (const [name, value] of Object.entries(this.views)) {
-      value.disabled = !enabledNames.has(name);
+    const enabledIds = new Set(enabled);
+    for (const [id, value] of Object.entries(this.views)) {
+      value.disabled = !enabledIds.has(id);
     }
   }
 
@@ -61,16 +67,42 @@ export class CompilerView {
    */
   compile() {
     try {
+      this.enable([]);
+
       const tokens = this.chip8compiler.parse(this.editor.innerText);
       console.log(tokens);
 
-      const bytes = this.chip8compiler.compile(tokens);
+      this.rom = this.chip8compiler.compile(tokens);
       this.chip8.reset();
-      this.chip8.loadProgramFromBytes(bytes);
+      this.chip8.loadProgramFromBytes(this.rom);
 
       this.notification.success('Compiled.');
+      this.enable(['compile', 'save']);
     } catch (e) {
       this.notification.error(e);
+      this.enable(['compile']);
     }
+  }
+
+  /**
+   * Save compiled rom image.
+   */
+  save() {
+    if (this.rom === undefined) {
+      return;
+    }
+
+    const blob = new Blob([this.rom], { type: 'octet/stream' });
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'chip8.rom';
+    a.click();
+
+    setTimeout(() => {
+      window.URL.revokeObjectURL(url);
+      a.remove();
+    }, 10 * 1000);
   }
 }
