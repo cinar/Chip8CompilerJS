@@ -53,7 +53,192 @@
             </div>
           </div>
           <div id="help" class="box">
-            Help...
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Opcode</th>
+                  <th>Instruction</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0nnn</td>
+                  <td>SYS addr</td>
+                  <td>Jump to a machine code routine at nnn.</td>
+                </tr>
+                <tr>
+                  <td>00E0</td>
+                  <td>CLS</td>
+                  <td>Clear the display.</td>
+                </tr>
+                <tr>
+                  <td>00EE</td>
+                  <td>RET</td>
+                  <td>Return from a subroutine.</td>
+                </tr>
+                <tr>
+                  <td>1nnn</td>
+                  <td>JP addr</td>
+                  <td>Jump to location nnn.</td>
+                </tr>
+                <tr>
+                  <td>2nnn</td>
+                  <td>CALL addr</td>
+                  <td>Call subroutine at nnn.</td>
+                </tr>
+                <tr>
+                  <td>3xkk</td>
+                  <td>SE Vx, byte</td>
+                  <td>Skip next instruction if Vx = kk.</td>
+                </tr>
+                <tr>
+                  <td>4xkk</td>
+                  <td>SNE Vx, byte</td>
+                  <td>Skip next instruction if Vx != kk.</td>
+                </tr>
+                <tr>
+                  <td>5xy0</td>
+                  <td>SE Vx, Vy</td>
+                  <td>Skip next instruction if Vx = Vy.</td>
+                </tr>
+                <tr>
+                  <td>6xkk</td>
+                  <td>LD Vx, byte</td>
+                  <td>Set Vx = kk.</td>
+                </tr>
+                <tr>
+                  <td>7xkk</td>
+                  <td>ADD Vx, byte</td>
+                  <td>Set Vx = Vx + kk.</td>
+                </tr>
+                <tr>
+                  <td>8xy0</td>
+                  <td>LD Vx, Vy</td>
+                  <td>Set Vx = Vy.</td>
+                </tr>
+                <tr>
+                  <td>8xy1</td>
+                  <td>OR Vx, Vy</td>
+                  <td>Set Vx = Vx OR Vy.</td>
+                </tr>
+                <tr>
+                  <td>8xy2</td>
+                  <td>AND Vx, Vy</td>
+                  <td>Set Vx = Vx AND Vy.</td>
+                </tr>
+                <tr>
+                  <td>8xy3</td>
+                  <td>XOR Vx, Vy</td>
+                  <td>Set Vx = Vx XOR Vy.</td>
+                </tr>
+                <tr>
+                  <td>8xy4</td>
+                  <td>ADD Vx, Vy</td>
+                  <td>Set Vx = Vx + Vy, set VF = carry.</td>
+                </tr>
+                <tr>
+                  <td>8xy5</td>
+                  <td>SUB Vx, Vy</td>
+                  <td>Set Vx = Vx - Vy, set VF = NOT borrow.</td>
+                </tr>
+                <tr>
+                  <td>8xy6</td>
+                  <td>SHR Vx Vy</td>
+                  <td>Set Vx = Vx SHR 1.</td>
+                </tr>
+                <tr>
+                  <td>8xy7</td>
+                  <td>SUBN Vx, Vy</td>
+                  <td>Set Vx = Vy - Vx, set VF = NOT borrow.</td>
+                </tr>
+                <tr>
+                  <td>8xyE</td>
+                  <td>SHL Vx Vy</td>
+                  <td>Set Vx = Vx SHL 1.</td>
+                </tr>
+                <tr>
+                  <td>9xy0</td>
+                  <td>SNE Vx, Vy</td>
+                  <td>Skip next instruction if Vx != Vy.</td>
+                </tr>
+                <tr>
+                  <td>Annn</td>
+                  <td>LD I, addr</td>
+                  <td>Set I = nnn.</td>
+                </tr>
+                <tr>
+                  <td>Bnnn</td>
+                  <td>JP V0, addr</td>
+                  <td>Jump to location nnn + V0.</td>
+                </tr>
+                <tr>
+                  <td>Cxkk</td>
+                  <td>RND Vx, byte</td>
+                  <td>Set Vx = random byte AND kk.</td>
+                </tr>
+                <tr>
+                  <td>Dxyn</td>
+                  <td>DRW Vx, Vy, nibble</td>
+                  <td>Display n-byte sprite starting at memory location I at (Vx, Vy), set VF = collision.</td>
+                </tr>
+                <tr>
+                  <td>Ex9E</td>
+                  <td>SKP Vx</td>
+                  <td>Skip next instruction if key with the value of Vx is pressed.</td>
+                </tr>
+                <tr>
+                  <td>ExA1</td>
+                  <td>SKNP Vx</td>
+                  <td>Skip next instruction if key with the value of Vx is not pressed.</td>
+                </tr>
+                <tr>
+                  <td>Fx07</td>
+                  <td>LD Vx, DT</td>
+                  <td>Set Vx = delay timer value.</td>
+                </tr>
+                <tr>
+                  <td>Fx0A</td>
+                  <td>LD Vx, K</td>
+                  <td>Wait for a key press, store the value of the key in Vx.</td>
+                </tr>
+                <tr>
+                  <td>Fx15</td>
+                  <td>LD DT, Vx</td>
+                  <td>Set delay timer = Vx.</td>
+                </tr>
+                <tr>
+                  <td>Fx18</td>
+                  <td>LD ST, Vx</td>
+                  <td>Set sound timer = Vx.</td>
+                </tr>
+                <tr>
+                  <td>Fx1E</td>
+                  <td>ADD I, Vx</td>
+                  <td>Set I = I + Vx.</td>
+                </tr>
+                <tr>
+                  <td>Fx29</td>
+                  <td>LD F, Vx</td>
+                  <td>Set I = location of sprite for digit Vx.</td>
+                </tr>
+                <tr>
+                  <td>Fx33</td>
+                  <td>LD B, Vx</td>
+                  <td>Store BCD representation of Vx in memory locations I, I+1, and I+2.</td>
+                </tr>
+                <tr>
+                  <td>Fx55</td>
+                  <td>LD I, Vx</td>
+                  <td>Store registers V0 through Vx in memory starting at location I.</td>
+                </tr>
+                <tr>
+                  <td>Fx65</td>
+                  <td>LD Vx, I</td>
+                  <td>Read registers V0 through Vx from memory starting at location I.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="column">

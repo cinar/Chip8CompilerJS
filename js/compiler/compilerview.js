@@ -47,6 +47,7 @@ export class CompilerView {
     for (let action of actions) {
       const a = document.getElementById(action.id);
       a.addEventListener('click', action.run);
+      this.views[action.id] = a;
     }
   }
 
